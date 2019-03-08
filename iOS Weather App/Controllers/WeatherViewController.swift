@@ -22,6 +22,7 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
@@ -34,13 +35,15 @@ class WeatherViewController: UIViewController {
         ]
         
         Alamofire.request(
-            "http://samples.openweathermap.org/data/2.5/weather",
+            "http://api.openweathermap.org/data/2.5/weather",
             method: .get,
             parameters: weatherParams
         ).responseJSON { response in
             if response.result.isSuccess {
+                let json = JSON(response.result.value!)
+                
                 print("Success obtained weather api data")
-                print("\(response.result.value!)")
+                print("\(json)")
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
             }
@@ -55,8 +58,6 @@ extension WeatherViewController: CLLocationManagerDelegate {
         let longitude = String(location.coordinate.longitude)
         
         getWeatherData(lat: latitude, lon: longitude)
-        
-        // print("\(latitude)")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

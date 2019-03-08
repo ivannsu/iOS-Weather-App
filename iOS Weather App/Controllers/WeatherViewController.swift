@@ -14,6 +14,7 @@ import SwiftyJSON
 class WeatherViewController: UIViewController {
     
     @IBOutlet weak var conditionLabel: UILabel!
+    @IBOutlet weak var cityNameLabel: UILabel!
     
     let WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
     let WEATHER_API_KEY = "d46219087443a7abcb091c12140b29b2"
@@ -38,13 +39,30 @@ class WeatherViewController: UIViewController {
         Alamofire.request(WEATHER_API_URL, method: .get, parameters: weatherParams).responseJSON { response in
             if response.result.isSuccess {
                 let json = JSON(response.result.value!)
+                /*
+                [
+                 "name" : "Cupertino",
+                 "weather" : [
+                     {
+                     "id" : 500,
+                     "icon" : "10d",
+                     "description" : "light rain",
+                     "main" : "Rain"
+                     }
+                ]
+                */
                 
-                print("Success obtained weather api data")
-                print("\(json)")
+                self.updateUI(data: json)
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
             }
         }
+    }
+    
+    func updateUI(data: JSON) {
+        // print("JSON Data: \(data)")
+        conditionLabel.text = String(data["weather"][0]["main"].stringValue)
+        cityNameLabel.text = String(data["name"].stringValue)
     }
 }
 

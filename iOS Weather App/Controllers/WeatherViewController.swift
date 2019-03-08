@@ -15,6 +15,7 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var conditionLabel: UILabel!
     
+    let WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
     let WEATHER_API_KEY = "d46219087443a7abcb091c12140b29b2"
     let locationManager = CLLocationManager()
     
@@ -34,11 +35,7 @@ class WeatherViewController: UIViewController {
             "appid": WEATHER_API_KEY
         ]
         
-        Alamofire.request(
-            "http://api.openweathermap.org/data/2.5/weather",
-            method: .get,
-            parameters: weatherParams
-        ).responseJSON { response in
+        Alamofire.request(WEATHER_API_URL, method: .get, parameters: weatherParams).responseJSON { response in
             if response.result.isSuccess {
                 let json = JSON(response.result.value!)
                 

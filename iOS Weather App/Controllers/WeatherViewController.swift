@@ -8,9 +8,13 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
+import SwiftyJSON
 
 class WeatherViewController: UIViewController, CLLocationManagerDelegate {
-
+    
+    @IBOutlet weak var conditionLabel: UILabel!
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -30,7 +34,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error fail get user location: \(error)")
         
-        // TODO - Set UILabel a message to users
+        conditionLabel.text = "Weather Unavailable"
+    }
+    
+    func getWeatherData() {
+        
     }
 }
 

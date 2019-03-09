@@ -22,6 +22,7 @@ class WeatherViewController: UIViewController {
     let WEATHER_API_KEY = "d46219087443a7abcb091c12140b29b2"
     let locationManager = CLLocationManager()
     var firstOpen = true
+    var searchNotFound = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,12 @@ class WeatherViewController: UIViewController {
                     self.firstOpen = false
                 }
                 
+                if json["cod"].intValue >= 400 {
+                    self.searchNotFound = true
+                } else {
+                    self.searchNotFound = false
+                }
+                
                 self.updateUI(data: json)
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
@@ -128,6 +135,12 @@ class WeatherViewController: UIViewController {
                 print("-----------------------> Searching....")
                 print(json)
                 
+                if json["cod"].intValue >= 400 {
+                    self.searchNotFound = true
+                } else {
+                    self.searchNotFound = false
+                }
+            
                 self.updateUI(data: json)
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
@@ -144,11 +157,14 @@ class WeatherViewController: UIViewController {
     }
     
     func updateUI(data: JSON) {
-        // print("JSON Data: \(data)")
-        print(" Masuk ke sini: \(String(data["name"].stringValue))")
-        conditionLabel.text = String(data["weather"][0]["main"].stringValue)
-        cityNameLabel.text = String(data["name"].stringValue)
-        conditionIconImage.image = UIImage(named: getWeatherIcon(condition: data["weather"][0]["id"].intValue))
+        if searchNotFound {
+            conditionLabel.text = "Weather Unavailable"
+            cityNameLabel.text = ""
+        } else {
+            conditionLabel.text = String(data["weather"][0]["main"].stringValue)
+            cityNameLabel.text = String(data["name"].stringValue)
+            conditionIconImage.image = UIImage(named: getWeatherIcon(condition: data["weather"][0]["id"].intValue))
+        }
     }
     
     func getWeatherIcon(condition: Int) -> String {

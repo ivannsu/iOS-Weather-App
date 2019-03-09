@@ -56,6 +56,7 @@ class WeatherViewController: UIViewController {
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
                 self.conditionLabel.text = "Weather Unavailable"
+                self.cityNameLabel.text = ""
             }
         }
     }

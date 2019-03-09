@@ -94,8 +94,58 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    func getWeatherBySearch(location: String) {
+        let weatherParams: [String: String] = [
+            "q": location,
+            "appid": WEATHER_API_KEY
+        ]
+        
+//        if firstOpen {
+//            SVProgressHUD.show()
+//        }
+        
+        Alamofire.request(WEATHER_API_URL, method: .get, parameters: weatherParams).responseJSON { response in
+            if response.result.isSuccess {
+                let json = JSON(response.result.value!)
+                /*
+                 [
+                 "name" : "Cupertino",
+                 "weather" : [
+                 {
+                 "id" : 500,
+                 "icon" : "10d",
+                 "description" : "light rain",
+                 "main" : "Rain"
+                 }
+                 ]
+                 */
+                
+//                if self.firstOpen {
+//                    SVProgressHUD.dismiss()
+//                    self.firstOpen = false
+//                }
+                
+                print("-----------------------> Searching....")
+                print(json)
+                
+                self.updateUI(data: json)
+            } else {
+                print("Error obtained Weather API Data: \(response.error!)")
+                
+//                if self.firstOpen {
+//                    SVProgressHUD.dismiss()
+//                    self.firstOpen = false
+//                }
+                
+                self.conditionLabel.text = "Weather Unavailable"
+                self.cityNameLabel.text = ""
+            }
+        }
+    }
+    
     func updateUI(data: JSON) {
         // print("JSON Data: \(data)")
+        print(" Masuk ke sini: \(String(data["name"].stringValue))")
         conditionLabel.text = String(data["weather"][0]["main"].stringValue)
         cityNameLabel.text = String(data["name"].stringValue)
         conditionIconImage.image = UIImage(named: getWeatherIcon(condition: data["weather"][0]["id"].intValue))
@@ -162,6 +212,6 @@ extension WeatherViewController: CLLocationManagerDelegate {
 
 extension WeatherViewController: ReceivedSearchLocation {
     func receiveSearchValue(val: String) {
-        print("from delegate \(val)")
+        getWeatherBySearch(location: val)
     }
 }

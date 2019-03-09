@@ -95,7 +95,7 @@ class WeatherViewController: UIViewController {
                     self.firstOpen = false
                 }
                 
-                self.conditionLabel.text = "Weather Unavailable"
+                self.conditionLabel.text = "Connection Issues"
                 self.cityNameLabel.text = ""
             }
         }
@@ -216,7 +216,12 @@ extension WeatherViewController: CLLocationManagerDelegate {
         let latitude = String(location.coordinate.latitude)
         let longitude = String(location.coordinate.longitude)
         
-        getWeatherData(lat: latitude, lon: longitude)
+        if location.horizontalAccuracy > 0 {
+            locationManager.stopUpdatingLocation()
+            locationManager.delegate = nil
+            
+            getWeatherData(lat: latitude, lon: longitude)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

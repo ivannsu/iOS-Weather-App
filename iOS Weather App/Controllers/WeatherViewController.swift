@@ -55,6 +55,7 @@ class WeatherViewController: UIViewController {
                 self.updateUI(data: json)
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
+                self.conditionLabel.text = "Weather Unavailable"
             }
         }
     }

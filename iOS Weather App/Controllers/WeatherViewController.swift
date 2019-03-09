@@ -35,6 +35,14 @@ class WeatherViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToChangeLocation" {
+            let destinationVC = segue.destination as! ChangeLocationViewController
+            
+            destinationVC.delegate = self
+        }
+    }
+    
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToChangeLocation", sender: self)
     }

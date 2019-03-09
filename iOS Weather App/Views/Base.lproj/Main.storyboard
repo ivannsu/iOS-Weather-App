@@ -111,6 +111,9 @@
                                 <rect key="frame" x="302" y="169" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="search"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="fIX-hr-OGd" eventType="touchUpInside" id="fN3-6G-Ezb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnr-67-bdW">
                                 <rect key="frame" x="16" y="28" width="23" height="23"/>

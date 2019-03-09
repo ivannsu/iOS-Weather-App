@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class WeatherViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class WeatherViewController: UIViewController {
     let WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
     let WEATHER_API_KEY = "d46219087443a7abcb091c12140b29b2"
     let locationManager = CLLocationManager()
+    var firstOpen = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,10 @@ class WeatherViewController: UIViewController {
             "appid": WEATHER_API_KEY
         ]
         
+        if firstOpen {
+            SVProgressHUD.show()
+        }
+        
         Alamofire.request(WEATHER_API_URL, method: .get, parameters: weatherParams).responseJSON { response in
             if response.result.isSuccess {
                 let json = JSON(response.result.value!)
@@ -56,9 +62,20 @@ class WeatherViewController: UIViewController {
                 ]
                 */
                 
+                if self.firstOpen {
+                    SVProgressHUD.dismiss()
+                    self.firstOpen = false
+                }
+                
                 self.updateUI(data: json)
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
+                
+                if self.firstOpen {
+                    SVProgressHUD.dismiss()
+                    self.firstOpen = false
+                }
+                
                 self.conditionLabel.text = "Weather Unavailable"
                 self.cityNameLabel.text = ""
             }

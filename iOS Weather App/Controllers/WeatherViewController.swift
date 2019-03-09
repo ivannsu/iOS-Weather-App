@@ -152,6 +152,7 @@ class WeatherViewController: UIViewController {
                 
                 self.conditionLabel.text = "Weather Unavailable"
                 self.cityNameLabel.text = ""
+                self.conditionIconImage.image = UIImage(named: "dunno")
             }
         }
     }
@@ -160,6 +161,7 @@ class WeatherViewController: UIViewController {
         if searchNotFound {
             conditionLabel.text = "Weather Unavailable"
             cityNameLabel.text = ""
+            conditionIconImage.image = UIImage(named: "dunno")
         } else {
             conditionLabel.text = String(data["weather"][0]["main"].stringValue)
             cityNameLabel.text = String(data["name"].stringValue)
@@ -228,6 +230,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
         print("Error fail get user location: \(error)")
         
         conditionLabel.text = "Weather Unavailable"
+        conditionIconImage.image = UIImage(named: "dunno")
     }
 }
 

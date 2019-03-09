@@ -23,6 +23,9 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // conditionLabel.font = UIFont(name: "Lato", size: 50.0)
+        // cityNameLabel.font = UIFont.boldSystemFont(ofSize: 50.0)
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()

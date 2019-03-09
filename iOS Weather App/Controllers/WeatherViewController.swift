@@ -28,9 +28,6 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // conditionLabel.font = UIFont(name: "Lato", size: 50.0)
-        // cityNameLabel.font = UIFont.boldSystemFont(ofSize: 50.0)
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
@@ -56,30 +53,13 @@ class WeatherViewController: UIViewController {
             "appid": WEATHER_API_KEY
         ]
         
-        if firstOpen {
-            SVProgressHUD.show()
-        }
+        SVProgressHUD.show()
         
         Alamofire.request(WEATHER_API_URL, method: .get, parameters: weatherParams).responseJSON { response in
             if response.result.isSuccess {
                 let json = JSON(response.result.value!)
-                /*
-                [
-                 "name" : "Cupertino",
-                 "weather" : [
-                     {
-                     "id" : 500,
-                     "icon" : "10d",
-                     "description" : "light rain",
-                     "main" : "Rain"
-                     }
-                ]
-                */
                 
-                if self.firstOpen {
-                    SVProgressHUD.dismiss()
-                    self.firstOpen = false
-                }
+                SVProgressHUD.dismiss()
                 
                 if json["cod"].intValue >= 400 {
                     self.searchNotFound = true
@@ -91,10 +71,7 @@ class WeatherViewController: UIViewController {
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
                 
-                if self.firstOpen {
-                    SVProgressHUD.dismiss()
-                    self.firstOpen = false
-                }
+                SVProgressHUD.dismiss()
                 
                 self.conditionLabel.text = "Connection Issues"
                 self.cityNameLabel.text = ""
@@ -115,26 +92,8 @@ class WeatherViewController: UIViewController {
         Alamofire.request(WEATHER_API_URL, method: .get, parameters: weatherParams).responseJSON { response in
             if response.result.isSuccess {
                 let json = JSON(response.result.value!)
-                /*
-                 [
-                 "name" : "Cupertino",
-                 "weather" : [
-                 {
-                 "id" : 500,
-                 "icon" : "10d",
-                 "description" : "light rain",
-                 "main" : "Rain"
-                 }
-                 ]
-                 */
                 
-//                if self.firstOpen {
-//                    SVProgressHUD.dismiss()
-//                    self.firstOpen = false
-//                }
-                
-                print("-----------------------> Searching....")
-                print(json)
+                SVProgressHUD.dismiss()
                 
                 if json["cod"].intValue >= 400 {
                     self.searchNotFound = true
@@ -146,10 +105,7 @@ class WeatherViewController: UIViewController {
             } else {
                 print("Error obtained Weather API Data: \(response.error!)")
                 
-//                if self.firstOpen {
-//                    SVProgressHUD.dismiss()
-//                    self.firstOpen = false
-//                }
+                SVProgressHUD.dismiss()
                 
                 self.conditionLabel.text = "Weather Unavailable"
                 self.cityNameLabel.text = ""
@@ -162,8 +118,10 @@ class WeatherViewController: UIViewController {
         if searchNotFound {
             conditionLabel.text = "Weather Unavailable"
             cityNameLabel.text = ""
+            temperatureLabel.text = ""
             conditionIconImage.image = UIImage(named: "dunno")
         } else {
+            temperatureLabel.text = "\(Int(data["main"]["temp"].double! - 273.15))°"
             conditionLabel.text = String(data["weather"][0]["main"].stringValue)
             cityNameLabel.text = String(data["name"].stringValue)
             conditionIconImage.image = UIImage(named: getWeatherIcon(condition: data["weather"][0]["id"].intValue))

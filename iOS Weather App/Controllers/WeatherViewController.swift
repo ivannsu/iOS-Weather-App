@@ -151,3 +151,9 @@ extension WeatherViewController: CLLocationManagerDelegate {
         conditionLabel.text = "Weather Unavailable"
     }
 }
+
+extension WeatherViewController: ReceivedSearchLocation {
+    func receiveSearchValue(val: String) {
+        print("from delegate \(val)")
+    }
+}

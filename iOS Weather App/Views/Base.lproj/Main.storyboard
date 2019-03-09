@@ -49,6 +49,9 @@
                                 <rect key="frame" x="168" y="566" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="search"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0eO-RO-8GV"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dunno" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-4J-Rxl">
                                 <rect key="frame" x="64" y="122" width="247" height="194"/>

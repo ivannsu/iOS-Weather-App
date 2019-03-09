@@ -35,6 +35,10 @@ class WeatherViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
+    @IBAction func searchButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToChangeLocation", sender: self)
+    }
+    
     func getWeatherData(lat: String, lon: String) {
         let weatherParams: [String: String] = [
             "lat": lat,

@@ -16,6 +16,7 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionIconImage: UIImageView!
     
     let WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -195,7 +196,7 @@ class WeatherViewController: UIViewController {
             return "sunny"
             
         case 801...804 :
-            return "cloudy2"
+            return "cloudy"
             
         case 900...903, 905...1000  :
             return "tstorm3"

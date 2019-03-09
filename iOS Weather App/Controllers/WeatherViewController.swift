@@ -87,7 +87,7 @@ class WeatherViewController: UIViewController {
     }
     
     func updateUI(data: JSON) {
-        print("JSON Data: \(data)")
+        // print("JSON Data: \(data)")
         conditionLabel.text = String(data["weather"][0]["main"].stringValue)
         cityNameLabel.text = String(data["name"].stringValue)
         conditionIconImage.image = UIImage(named: getWeatherIcon(condition: data["weather"][0]["id"].intValue))

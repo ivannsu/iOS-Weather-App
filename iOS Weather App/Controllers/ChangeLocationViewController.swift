@@ -9,9 +9,15 @@
 import UIKit
 
 class ChangeLocationViewController: UIViewController {
-
+    
+    @IBOutlet weak var containerSearchTextField: UIView!
+    @IBOutlet weak var searchTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        containerSearchTextField.layer.cornerRadius = 10.0
+        containerSearchTextField.clipsToBounds = true
     }
 
 }

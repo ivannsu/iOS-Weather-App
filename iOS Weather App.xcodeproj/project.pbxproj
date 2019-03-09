@@ -14,6 +14,7 @@
 		250E714F222EB3770039C051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250E714D222EB3770039C051 /* LaunchScreen.storyboard */; };
 		250E715A222EB8430039C051 /* ChangeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E7159222EB8430039C051 /* ChangeLocationViewController.swift */; };
 		25C7E2352233961A00F5C616 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25C7E2342233961900F5C616 /* Lato-Bold.ttf */; };
+		25C7E23922339F9200F5C616 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25C7E23822339F9200F5C616 /* Lato-Regular.ttf */; };
 		E3B5A1F9C5D21E98515EB224 /* Pods_iOS_Weather_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5335EBF5EEA4BC161E83FC5 /* Pods_iOS_Weather_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		250E7150222EB3770039C051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		250E7159222EB8430039C051 /* ChangeLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLocationViewController.swift; sourceTree = "<group>"; };
 		25C7E2342233961900F5C616 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		25C7E23822339F9200F5C616 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		5304022CC63740BF71F86A48 /* Pods-iOS Weather App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Weather App.release.xcconfig"; path = "Target Support Files/Pods-iOS Weather App/Pods-iOS Weather App.release.xcconfig"; sourceTree = "<group>"; };
 		C5335EBF5EEA4BC161E83FC5 /* Pods_iOS_Weather_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Weather_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD445ADF62FBCF62C50BB48 /* Pods-iOS Weather App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Weather App.debug.xcconfig"; path = "Target Support Files/Pods-iOS Weather App/Pods-iOS Weather App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				25C7E2342233961900F5C616 /* Lato-Bold.ttf */,
+				25C7E23822339F9200F5C616 /* Lato-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				250E714F222EB3770039C051 /* LaunchScreen.storyboard in Resources */,
 				250E714C222EB3770039C051 /* Assets.xcassets in Resources */,
+				25C7E23922339F9200F5C616 /* Lato-Regular.ttf in Resources */,
 				250E714A222EB3750039C051 /* Main.storyboard in Resources */,
 				25C7E2352233961A00F5C616 /* Lato-Bold.ttf in Resources */,
 			);

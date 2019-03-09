@@ -20,4 +20,7 @@ class ChangeLocationViewController: UIViewController {
         containerSearchTextField.clipsToBounds = true
     }
 
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }

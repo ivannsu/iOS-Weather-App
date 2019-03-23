@@ -73,8 +73,10 @@ class WeatherViewController: UIViewController {
                 
                 SVProgressHUD.dismiss()
                 
+                self.conditionIconImage.image = UIImage(named: "dunno")
                 self.conditionLabel.text = "Connection Issues"
                 self.cityNameLabel.text = ""
+                self.temperatureLabel.text = ""
             }
         }
     }
@@ -109,6 +111,7 @@ class WeatherViewController: UIViewController {
                 
                 self.conditionLabel.text = "Weather Unavailable"
                 self.cityNameLabel.text = ""
+                self.temperatureLabel.text = ""
                 self.conditionIconImage.image = UIImage(named: "dunno")
             }
         }
@@ -189,6 +192,8 @@ extension WeatherViewController: CLLocationManagerDelegate {
         print("Error fail get user location: \(error)")
         
         conditionLabel.text = "Weather Unavailable"
+        cityNameLabel.text = ""
+        temperatureLabel.text = ""
         conditionIconImage.image = UIImage(named: "dunno")
     }
 }

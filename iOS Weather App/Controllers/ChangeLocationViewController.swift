@@ -17,9 +17,6 @@ class ChangeLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        containerSearchTextField.layer.cornerRadius = 10.0
-        containerSearchTextField.clipsToBounds = true
     }
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         delegate?.receiveSearchValue(val: searchTextField.text!)

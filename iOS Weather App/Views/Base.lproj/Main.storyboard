@@ -70,21 +70,23 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fog" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-4J-Rxl">
-                                <rect key="frame" x="53.5" y="131" width="213" height="183"/>
+                                <rect key="frame" x="96" y="131" width="128" height="183"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="Liz-Wi-K7S"/>
-                                    <constraint firstAttribute="width" constant="213" id="WU0-0c-ec7"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92e-4c-8fD" userLabel="line">
                                 <rect key="frame" x="0.0" y="477" width="320" height="4"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="4" id="75Z-go-TRm"/>
+                                    <constraint firstAttribute="height" constant="4" id="ywa-3J-Kfk"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="27 °" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqd-r6-ngG">
-                                <rect key="frame" x="133.5" y="335" width="53" height="36"/>
+                                <rect key="frame" x="16" y="335" width="288" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="gCW-co-baX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -97,10 +99,9 @@
                             <constraint firstItem="CdF-dg-W6P" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="5V3-N1-1r8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CF3-lt-IVa" secondAttribute="bottom" constant="25" id="5gR-W0-8H0"/>
                             <constraint firstItem="CF3-lt-IVa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8Jc-ny-TYX"/>
-                            <constraint firstItem="Ac8-4J-Rxl" firstAttribute="top" relation="lessThanOrEqual" secondItem="gtG-1F-9qC" secondAttribute="bottom" constant="150" id="AE6-Xy-JzY"/>
+                            <constraint firstItem="Ac8-4J-Rxl" firstAttribute="top" secondItem="gtG-1F-9qC" secondAttribute="bottom" constant="21" id="AE6-Xy-JzY"/>
                             <constraint firstItem="wbl-eL-ZCT" firstAttribute="centerX" secondItem="hqd-r6-ngG" secondAttribute="centerX" id="BKG-dK-429"/>
                             <constraint firstItem="hqd-r6-ngG" firstAttribute="top" secondItem="Ac8-4J-Rxl" secondAttribute="bottom" constant="21" id="EhF-1f-sop"/>
-                            <constraint firstItem="92e-4c-8fD" firstAttribute="top" secondItem="wbl-eL-ZCT" secondAttribute="bottom" constant="57" id="Fnu-Im-QIT"/>
                             <constraint firstAttribute="top" secondItem="g25-LT-YGN" secondAttribute="top" id="GE6-f7-Le3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="92e-4c-8fD" secondAttribute="trailing" id="Gxg-k7-WII"/>
                             <constraint firstAttribute="bottom" secondItem="g25-LT-YGN" secondAttribute="bottom" id="Ifv-fB-gzK"/>
@@ -108,10 +109,10 @@
                             <constraint firstItem="CdF-dg-W6P" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KHt-nX-L1I"/>
                             <constraint firstItem="92e-4c-8fD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b6A-WO-Q56"/>
                             <constraint firstItem="gtG-1F-9qC" firstAttribute="centerX" secondItem="CdF-dg-W6P" secondAttribute="centerX" id="bOu-jS-3zF"/>
-                            <constraint firstItem="CF3-lt-IVa" firstAttribute="top" secondItem="92e-4c-8fD" secondAttribute="bottom" constant="23" id="e09-9Z-DhC"/>
                             <constraint firstItem="Ac8-4J-Rxl" firstAttribute="centerX" secondItem="gtG-1F-9qC" secondAttribute="centerX" id="fFa-v3-wHD"/>
                             <constraint firstItem="hqd-r6-ngG" firstAttribute="centerX" secondItem="Ac8-4J-Rxl" secondAttribute="centerX" id="fMf-BV-ILy"/>
                             <constraint firstItem="g25-LT-YGN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="m80-y6-A8m"/>
+                            <constraint firstItem="CF3-lt-IVa" firstAttribute="top" secondItem="92e-4c-8fD" secondAttribute="bottom" constant="23" id="xn5-ar-vFT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

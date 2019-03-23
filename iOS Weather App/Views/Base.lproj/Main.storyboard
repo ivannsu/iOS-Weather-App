@@ -145,26 +145,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-reverse" translatesAutoresizingMaskIntoConstraints="NO" id="NEr-V2-Zdb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wi-D1-j9q">
-                                <rect key="frame" x="78" y="109" width="219" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIY-wM-9E2" userLabel="Search Text Field Container">
-                                <rect key="frame" x="33" y="163" width="257" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZTR-2S-Oia">
-                                <rect key="frame" x="41" y="168" width="240" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="po2-R3-o5J" userLabel="BackContainer">
                                 <rect key="frame" x="16" y="33" width="68" height="23"/>
                                 <subviews>
@@ -198,38 +178,64 @@
                                     <constraint firstItem="IZP-1u-Ftv" firstAttribute="top" secondItem="po2-R3-o5J" secondAttribute="top" id="x4l-ui-3hS"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGN-KP-v53" userLabel="SearchButton">
-                                <rect key="frame" x="302" y="169" width="39" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJG-Jr-7NZ" userLabel="line">
+                                <rect key="frame" x="0.0" y="72" width="320" height="2"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="eLs-IG-c1I"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wi-D1-j9q">
+                                <rect key="frame" x="16" y="122" width="288" height="26"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZTR-2S-Oia">
+                                <rect key="frame" x="25" y="178" width="218" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="u6c-Yn-byA"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGN-KP-v53" userLabel="SearchButton">
+                                <rect key="frame" x="260" y="178" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7c9-8d-ExP"/>
+                                    <constraint firstAttribute="width" constant="40" id="Eg3-kc-pNC"/>
+                                </constraints>
                                 <state key="normal" image="search"/>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="fIX-hr-OGd" eventType="touchUpInside" id="fN3-6G-Ezb"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJG-Jr-7NZ" userLabel="line">
-                                <rect key="frame" x="0.0" y="71" width="375" height="4"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="4" id="j3H-Ja-sck"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cJG-Jr-7NZ" firstAttribute="leading" secondItem="CL9-v9-ZLz" secondAttribute="leading" id="9Cm-cc-ZYt"/>
-                            <constraint firstItem="cJG-Jr-7NZ" firstAttribute="trailing" secondItem="CL9-v9-ZLz" secondAttribute="trailing" constant="55" id="BGk-NZ-kZg"/>
+                            <constraint firstItem="CL9-v9-ZLz" firstAttribute="trailing" secondItem="6wi-D1-j9q" secondAttribute="trailing" constant="16" id="2qr-6p-kLE"/>
+                            <constraint firstItem="eGN-KP-v53" firstAttribute="top" secondItem="6wi-D1-j9q" secondAttribute="bottom" constant="30" id="3KT-8n-JhQ"/>
                             <constraint firstItem="po2-R3-o5J" firstAttribute="top" secondItem="CL9-v9-ZLz" secondAttribute="top" constant="13" id="F34-Mv-R2h"/>
                             <constraint firstItem="NEr-V2-Zdb" firstAttribute="leading" secondItem="CL9-v9-ZLz" secondAttribute="leading" id="FbY-cd-ECC"/>
+                            <constraint firstItem="CL9-v9-ZLz" firstAttribute="trailing" secondItem="eGN-KP-v53" secondAttribute="trailing" constant="20" id="H13-ud-M1W"/>
                             <constraint firstAttribute="top" secondItem="NEr-V2-Zdb" secondAttribute="top" id="HKN-ye-lb4"/>
-                            <constraint firstItem="cJG-Jr-7NZ" firstAttribute="top" secondItem="po2-R3-o5J" secondAttribute="bottom" constant="15" id="XJ4-gH-YTE"/>
+                            <constraint firstItem="ZTR-2S-Oia" firstAttribute="leading" secondItem="CL9-v9-ZLz" secondAttribute="leading" constant="25" id="N89-Kg-wGW"/>
+                            <constraint firstItem="ZTR-2S-Oia" firstAttribute="centerY" secondItem="eGN-KP-v53" secondAttribute="centerY" id="OD1-Pc-uzC"/>
+                            <constraint firstItem="eGN-KP-v53" firstAttribute="leading" secondItem="ZTR-2S-Oia" secondAttribute="trailing" constant="17" id="WSt-cw-LFK"/>
                             <constraint firstAttribute="bottom" secondItem="NEr-V2-Zdb" secondAttribute="bottom" id="bLa-pb-IDS"/>
                             <constraint firstItem="CL9-v9-ZLz" firstAttribute="trailing" secondItem="NEr-V2-Zdb" secondAttribute="trailing" id="cWd-y8-ytR"/>
+                            <constraint firstItem="6wi-D1-j9q" firstAttribute="leading" secondItem="CL9-v9-ZLz" secondAttribute="leading" constant="16" id="egQ-5o-8BS"/>
+                            <constraint firstItem="6wi-D1-j9q" firstAttribute="top" secondItem="cJG-Jr-7NZ" secondAttribute="bottom" constant="48" id="hFP-pu-PXs"/>
+                            <constraint firstItem="cJG-Jr-7NZ" firstAttribute="top" secondItem="po2-R3-o5J" secondAttribute="bottom" constant="16" id="iX7-Yf-Xzf"/>
                             <constraint firstItem="po2-R3-o5J" firstAttribute="leading" secondItem="CL9-v9-ZLz" secondAttribute="leading" constant="16" id="ngG-mm-32h"/>
+                            <constraint firstItem="cJG-Jr-7NZ" firstAttribute="leading" secondItem="CL9-v9-ZLz" secondAttribute="leading" id="w1f-7a-ftg"/>
+                            <constraint firstItem="CL9-v9-ZLz" firstAttribute="trailing" secondItem="cJG-Jr-7NZ" secondAttribute="trailing" id="x03-2V-KO3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CL9-v9-ZLz"/>
                     </view>
                     <connections>
-                        <outlet property="containerSearchTextField" destination="bIY-wM-9E2" id="qKr-iN-7LI"/>
                         <outlet property="searchTextField" destination="ZTR-2S-Oia" id="LCD-kw-feI"/>
                     </connections>
                 </viewController>
